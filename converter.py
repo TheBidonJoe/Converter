@@ -1,5 +1,6 @@
 import math
 
+
 while True:
     thing = input("What would you like to convert? If unsure please type 'help': ")
 
@@ -7,31 +8,51 @@ while True:
     if thing == "help":
         # Note: Add Exchange Rate API if available !!!
 
-        print("Conversions: mass, length, temperature, currency ... ")
+        print("----------")
+        print("Please enter a subject from the list below!")
+        print("Conversion-Subjects: mass, length, temperature, currency, tbc ")
+        print("Shape-Subjects: rectangle, square, circle, triangle, tbc ")
+        print("----------")
         subject = input("Please enter a subject for further commands: ")
-        if subject == "mass":
+        if subject == "mass" or subject == "Mass":
             print("The available mass conversions are:")
             print("'g to kg' & vice versa")
             print("'kg to t' & vice versa")
             continue
-        elif subject == "length":
+        elif subject == "length" or subject == "Length":
             print("The available length conversions are:")
             print("'m to km' & vice versa")
             print("'km to miles' & vice versa")
             continue
-        elif subject == "temperature" or subject == "temp":
+        elif subject == "temperature" or subject == "temp" or subject == "Temp" or subject == "Temperature":
             print("The available temperature conversions are:")
             print("'celsius to kelvin' or 'c to k' & vice versa")
             print("'fahrenheit to kelvin' or 'f to k' & vice versa")
             print("'celsius to fahrenheit' or 'c to f' & vice versa")
             continue
-        elif subject == "currency conversion" or subject == "currency":
+        elif subject == "currency conversion" or subject == "currency" or subject == "Currency":
             print("Subject to change due to realtime value adjustments")
             print("The available currency conversions are:")
             print("'euro to dollar' & vice versa")
             continue
+        elif subject == "Triangle" or subject == "triangle":
+            print("The available tools for triangles are:")
+            print("'area of triangle'")
+            continue
+        elif subject == "Circle" or subject == "circle":
+            print("The available tools for circles are:")
+            print("'xxx'")
+            continue
+        elif subject == "Rectangle" or subject == "rectangle":
+            print("The available tools for rectangles are:")
+            print("'xxx'")
+            continue
+        elif subject == "Square" or subject == "square":
+            print("The available tools for squares are:")
+            print("'xxx'")
+            continue
         else:
-            print("Please enter a valid command!")
+            print("Please enter a valid subject!")
             continue
 
     # LENGTH
@@ -103,6 +124,26 @@ while True:
         d = U / math.pi
         d_round = round(d, 2)
         print("The circle has a circumference of", d_round,"cm")
+
+    # TRIANGLES
+    # TEST-CODE not fully tested yet!
+    elif thing == "area of triangle":
+        try:
+            s_a = float(input("Enter side a (cm): "))
+            s_b = float(input("Enter side b (cm): "))
+            s_c = float(input("Enter side c (cm): "))
+
+            # Test if shape == triangle
+            if s_a + s_b > s_c and s_a + s_c > s_b and s_b + s_c > s_a:
+                s = (s_a + s_b + s_c) / 2
+                area = math.sqrt(s * (s - s_a) * (s - s_b) * (s - s_c))
+                a_rou = round(area, 2)
+                # Print the area
+                print("The area (A) of the triangle is:", a_rou, "square cm")
+            else:
+                print("Entered sides DON'T form a triangle!")
+        except ValueError:
+            print("Invalid input!")
 
     # TEMPERATURE
     elif thing == "celsius to kelvin" or thing == "c to k":
