@@ -126,7 +126,7 @@ while True:
         print("The circle has a circumference of", d_round,"cm")
 
     # TRIANGLES
-    # TEST-CODE not fully tested yet!
+    # test-code NOT fully tested yet!
     elif thing == "area of triangle":
         try:
             s_a = float(input("Enter side a (cm): "))
@@ -135,11 +135,10 @@ while True:
 
             # Test if shape == triangle
             if s_a + s_b > s_c and s_a + s_c > s_b and s_b + s_c > s_a:
-                s = (s_a + s_b + s_c) / 2
-                area = math.sqrt(s * (s - s_a) * (s - s_b) * (s - s_c))
-                a_rou = round(area, 2)
-                # Print the area
-                print("The area (A) of the triangle is:", a_rou, "square cm")
+                x = (s_a + s_b + s_c) / 2
+                area = math.sqrt(x * (x - s_a) * (x - s_b) * (x - s_c))
+                A_round = round(area, 2)
+                print("The area (A) of the triangle is:", A_round, "square cm")
             else:
                 print("Entered sides DON'T form a triangle!")
         except ValueError:
